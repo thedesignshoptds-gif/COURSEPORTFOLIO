@@ -1,0 +1,131 @@
+/* Design tokens ported from The Design Shop design system */
+
+@font-face{font-family:"BDO Grotesk";src:url("../fonts/BDOGrotesk-Light.otf") format("opentype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"BDO Grotesk";src:url("../fonts/BDOGrotesk-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"BDO Grotesk";src:url("../fonts/BDOGrotesk-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"BDO Grotesk";src:url("../fonts/BDOGrotesk-DemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("../fonts/JetBrainsMono-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("../fonts/JetBrainsMono-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("../fonts/JetBrainsMono-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+
+:root{
+  /* colors */
+  --white:#F9FAF5;
+  --black:#1E1E1E;
+  --gray-50:#F3F4EE;
+  --gray-100:#E7E8E1;
+  --gray-200:#D3D4CB;
+  --gray-300:#B4B5A9;
+  --gray-400:#8E8F82;
+  --gray-500:#6C6D61;
+  --gray-600:#4F5046;
+  --gray-700:#38392F;
+  --gray-800:#28291F;
+  --gray-900:#1E1E1E;
+  --accent:#FF4B24;
+  --accent-hover:#E23F1B;
+  --accent-active:#C43516;
+  --accent-tint:#FFE7DE;
+  --accent-contrast:#F9FAF5;
+  --surface-light:var(--white);
+  --surface-dark:var(--black);
+  --surface-light-raised:#FFFFFF;
+  --surface-dark-raised:#282828;
+  --border-light:rgba(30,30,30,0.12);
+  --border-dark:rgba(249,250,245,0.16);
+  --border-light-strong:rgba(30,30,30,0.28);
+  --border-dark-strong:rgba(249,250,245,0.32);
+  --fg-on-light:var(--black);
+  --fg-on-light-muted:var(--gray-600);
+  --fg-on-light-faint:var(--gray-400);
+  --fg-on-dark:var(--white);
+  --fg-on-dark-muted:var(--gray-300);
+  --fg-on-dark-faint:var(--gray-500);
+  --grid-line-light:rgba(30,30,30,0.08);
+  --grid-line-dark:rgba(249,250,245,0.10);
+  --focus-ring:var(--accent);
+  --success:#2E6B3E;
+  --error:#C4351A;
+
+  /* typography */
+  --font-display:"BDO Grotesk",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-body:"BDO Grotesk",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono","IBM Plex Mono",ui-monospace,monospace;
+  --weight-light:300;
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-demibold:600;
+  --size-10:0.625rem;
+  --size-11:0.6875rem;
+  --size-12:0.75rem;
+  --size-13:0.8125rem;
+  --size-14:0.875rem;
+  --size-16:1rem;
+  --size-18:1.125rem;
+  --size-20:1.25rem;
+  --size-24:1.5rem;
+  --size-32:2rem;
+  --size-40:2.5rem;
+  --size-56:3.5rem;
+  --size-72:4.5rem;
+  --size-96:6rem;
+  --size-128:8rem;
+  --lh-tight:0.96;
+  --lh-snug:1.1;
+  --lh-normal:1.35;
+  --lh-relaxed:1.6;
+  --tracking-tightest:-0.04em;
+  --tracking-tight:-0.02em;
+  --tracking-normal:0;
+  --tracking-wide:0.06em;
+  --tracking-widest:0.14em;
+  --text-display-1:600 var(--size-128)/var(--lh-tight) var(--font-display);
+  --text-display-2:600 var(--size-96)/var(--lh-tight) var(--font-display);
+  --text-h1:600 var(--size-72)/var(--lh-tight) var(--font-display);
+  --text-h2:600 var(--size-56)/var(--lh-snug) var(--font-display);
+  --text-h3:500 var(--size-40)/var(--lh-snug) var(--font-display);
+  --text-h4:500 var(--size-32)/var(--lh-snug) var(--font-display);
+  --text-h5:500 var(--size-24)/var(--lh-normal) var(--font-display);
+  --text-body-lg:400 var(--size-20)/var(--lh-relaxed) var(--font-body);
+  --text-body:400 var(--size-16)/var(--lh-relaxed) var(--font-body);
+  --text-body-sm:400 var(--size-14)/var(--lh-normal) var(--font-body);
+  --text-label:500 var(--size-12)/var(--lh-normal) var(--font-body);
+  --text-eyebrow:600 var(--size-12)/var(--lh-normal) var(--font-body);
+  --text-mono:400 var(--size-13)/var(--lh-normal) var(--font-mono);
+
+  /* spacing */
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:64px;
+  --space-9:96px;
+  --space-10:128px;
+  --space-11:192px;
+  --radius-none:0px;
+  --radius-sm:2px;
+  --radius-md:4px;
+  --radius-lg:6px;
+  --radius-pill:999px;
+  --border-w:1px;
+  --grid-columns:12;
+  --grid-gutter:var(--space-5);
+  --grid-margin:var(--space-8);
+  --container-max:1440px;
+  --ease-standard:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --duration-fast:120ms;
+  --duration-base:200ms;
+  --duration-slow:400ms;
+
+  /* effects */
+  --shadow-sm:0 1px 2px rgba(30,30,30,0.06);
+  --shadow-md:0 4px 12px rgba(30,30,30,0.08);
+  --shadow-lg:0 12px 32px rgba(30,30,30,0.12);
+  --shadow-dark-sm:0 1px 2px rgba(0,0,0,0.30);
+  --shadow-dark-md:0 4px 16px rgba(0,0,0,0.36);
+  --shadow-dark-lg:0 16px 40px rgba(0,0,0,0.46);
+}
