@@ -11,6 +11,11 @@
 </head>
 <body>
 
+<div class="custom-cursor" id="customCursor" aria-hidden="true">
+  <span class="custom-cursor-bar custom-cursor-bar--h"></span>
+  <span class="custom-cursor-bar custom-cursor-bar--v"></span>
+</div>
+
 <div class="scroll-rail" id="scrollRail">
   <div class="scroll-rail-track">
     <div class="scroll-rail-fill" id="scrollRailFill"></div>
@@ -43,13 +48,33 @@
       <a href="#faq" class="nav-link" data-nav-link>FAQs</a>
     </div>
     <a href="#pricing" class="nav-cta">Join now</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
 </nav>
 
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-links">
+    <a href="#home" class="mobile-nav-link" data-mobile-nav-link>Home</a>
+    <a href="#issue" class="mobile-nav-link" data-mobile-nav-link>The real issue</a>
+    <a href="#curriculum" class="mobile-nav-link" data-mobile-nav-link>The curriculum</a>
+    <a href="#outcomes" class="mobile-nav-link" data-mobile-nav-link>What you&rsquo;ll have</a>
+    <a href="#instructor" class="mobile-nav-link" data-mobile-nav-link>Who&rsquo;s teaching</a>
+    <a href="#pricing" class="mobile-nav-link" data-mobile-nav-link>Pricing</a>
+    <a href="#faq" class="mobile-nav-link" data-mobile-nav-link>FAQs</a>
+  </div>
+  <a href="#pricing" class="btn btn-primary mobile-nav-cta" data-mobile-nav-link>Join now</a>
+</div>
+
 <!-- HERO + PROOF STRIP -->
 <section id="home" class="hero">
-  <div class="eyebrow"><span class="eyebrow-rule"></span>Batch 01 · Live cohort</div>
-  <h1 class="hero-title" id="heroTitle">The hiring<br>rebuild<em>.</em></h1>
+  <div class="eyebrow"><span class="eyebrow-rule" data-line="eyebrow"></span>Batch 01 · Live cohort</div>
+  <h1 class="hero-title" id="heroTitle">
+    <span class="line-mask"><span class="line-inner">The hiring</span></span>
+    <span class="line-mask"><span class="line-inner">rebuild<em>.</em></span></span>
+  </h1>
   <p class="hero-sub">5 live classes to fix everything standing between your work and a job offer. Your portfolio, your stories, your resume, and how you talk in interviews.</p>
   <div class="hero-actions">
     <a href="#pricing" class="btn btn-primary">Join for ₹2499
@@ -59,7 +84,7 @@
   </div>
   <div class="hero-note">Early price. Limited seats so everyone gets real feedback.</div>
 
-  <div class="fact-grid" id="factGrid">
+  <div class="fact-grid" id="factGrid" data-line="top-bottom">
     <div class="fact-item"><div class="fact-label">Format</div><div class="fact-value">5 live classes</div></div>
     <div class="fact-item"><div class="fact-label">Time</div><div class="fact-value">~75 min a day</div></div>
     <div class="fact-item"><div class="fact-label">Seats</div><div class="fact-value">Kept small</div></div>
@@ -69,16 +94,16 @@
 
 <section class="proof">
   <div class="proof-grid" id="proofGrid">
-    <div class="proof-stat" data-reveal>
-      <div class="proof-num">82%</div>
+    <div class="proof-stat hover-card" data-reveal>
+      <div class="proof-num"><span class="counter" data-target="82" data-suffix="%">0%</span></div>
       <div class="proof-text">of design leaders say the need for designers is still growing.</div>
     </div>
-    <div class="proof-stat" data-reveal>
-      <div class="proof-num">78%</div>
+    <div class="proof-stat hover-card" data-reveal>
+      <div class="proof-num"><span class="counter" data-target="78" data-suffix="%">0%</span></div>
       <div class="proof-text">of recruiters now use AI tools to check portfolios before a person even looks.</div>
     </div>
-    <div class="proof-stat" data-reveal>
-      <div class="proof-num">200</div>
+    <div class="proof-stat hover-card" data-reveal>
+      <div class="proof-num"><span class="counter" data-target="200" data-suffix="">0</span></div>
       <div class="proof-text">is how many applications your portfolio is quietly competing with, every time.</div>
     </div>
   </div>
@@ -86,14 +111,13 @@
 
 <!-- THE REAL ISSUE -->
 <section id="issue" class="section">
-  <div class="section-grid-bg"></div>
   <div class="section-blob" data-parallax="0.04" style="top:6%;right:-200px;width:520px;height:520px;opacity:0.045;filter:blur(100px);"></div>
   <div class="container">
-    <div class="eyebrow"><span class="eyebrow-rule"></span>The real issue</div>
+    <div class="eyebrow"><span class="eyebrow-rule" data-line="eyebrow"></span>The real issue</div>
     <h2 class="section-title">Your work is good. That&rsquo;s not why you&rsquo;re stuck.</h2>
     <p class="section-lead">After reviewing hundreds of student and client portfolios, the same four problems keep showing up. None of them are about talent.</p>
 
-    <div class="symptom-list">
+    <div class="symptom-list" data-line="top">
       <div class="symptom-item" data-reveal>
         <div class="symptom-num">01</div>
         <div><h3 class="symptom-title">Your best work is hidden</h3></div>
@@ -122,12 +146,12 @@
 <section id="curriculum" class="section curriculum">
   <div class="section-blob" data-parallax="-0.05" style="top:20%;left:-220px;width:560px;height:560px;opacity:0.08;filter:blur(110px);"></div>
   <div class="container">
-    <div class="eyebrow"><span class="eyebrow-rule"></span>The curriculum · 5 days</div>
+    <div class="eyebrow"><span class="eyebrow-rule" data-line="eyebrow"></span>The curriculum · 5 days</div>
     <h2 class="section-title section-title--dark">One thing fixed at a time, for 5 days straight.</h2>
     <p class="section-lead section-lead--dark">Each class fixes one part of your job hunt. You leave every single day with something real — a template, a script, a page you actually built — not just notes.</p>
 
-    <div class="day-list">
-      <div class="day-row" data-reveal>
+    <div class="day-list" data-line="top">
+      <div class="day-row hover-card" data-reveal>
         <div>
           <div class="day-label">Day 01</div>
           <div class="day-num">01</div>
@@ -143,7 +167,7 @@
         </ul>
       </div>
 
-      <div class="day-row" data-reveal>
+      <div class="day-row hover-card" data-reveal>
         <div>
           <div class="day-label">Day 02</div>
           <div class="day-num">02</div>
@@ -159,7 +183,7 @@
         </ul>
       </div>
 
-      <div class="day-row" data-reveal>
+      <div class="day-row hover-card" data-reveal>
         <div>
           <div class="day-label">Day 03</div>
           <div class="day-num">03</div>
@@ -175,7 +199,7 @@
         </ul>
       </div>
 
-      <div class="day-row" data-reveal>
+      <div class="day-row hover-card" data-reveal>
         <div>
           <div class="day-label">Day 04</div>
           <div class="day-num">04</div>
@@ -191,7 +215,7 @@
         </ul>
       </div>
 
-      <div class="day-row" data-reveal>
+      <div class="day-row hover-card" data-reveal>
         <div>
           <div class="day-label">Day 05</div>
           <div class="day-num">05</div>
@@ -212,28 +236,27 @@
 
 <!-- OUTCOMES -->
 <section id="outcomes" class="section">
-  <div class="section-grid-bg"></div>
   <div class="section-blob" data-parallax="0.06" style="top:10%;right:-190px;width:500px;height:500px;opacity:0.045;filter:blur(100px);"></div>
   <div class="container">
-    <div class="eyebrow"><span class="eyebrow-rule"></span>What you&rsquo;ll have by the end</div>
+    <div class="eyebrow"><span class="eyebrow-rule" data-line="eyebrow"></span>What you&rsquo;ll have by the end</div>
     <h2 class="section-title" style="margin-bottom:56px;">Here&rsquo;s what you&rsquo;ll actually have.</h2>
-    <div class="outcome-grid" id="outcomeGrid">
-      <div class="outcome-item" data-reveal>
+    <div class="outcome-grid" id="outcomeGrid" data-line="top-bottom">
+      <div class="outcome-item hover-card" data-reveal>
         <div class="outcome-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
         <h4 class="outcome-title">A live, working portfolio</h4>
         <p class="outcome-text">Not a &ldquo;coming soon&rdquo; page. Something published, clear, and ready to send to a recruiter today.</p>
       </div>
-      <div class="outcome-item" data-reveal>
+      <div class="outcome-item hover-card" data-reveal>
         <div class="outcome-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
         <h4 class="outcome-title">At least one strong case study</h4>
         <p class="outcome-text">Written properly, with a clear story — plus the exact steps to write the rest the same way.</p>
       </div>
-      <div class="outcome-item" data-reveal>
+      <div class="outcome-item hover-card" data-reveal>
         <div class="outcome-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
         <h4 class="outcome-title">An interview you&rsquo;re ready for</h4>
         <p class="outcome-text">A practiced script and 5 real stories, so you&rsquo;re calm and clear instead of freezing up.</p>
       </div>
-      <div class="outcome-item" data-reveal>
+      <div class="outcome-item hover-card" data-reveal>
         <div class="outcome-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
         <h4 class="outcome-title">A resume and LinkedIn that work</h4>
         <p class="outcome-text">Both rebuilt to actually get you noticed — so people start reaching out to you.</p>
@@ -244,29 +267,28 @@
 
 <!-- EXTRAS -->
 <section class="section extras">
-  <div class="section-grid-bg"></div>
   <div class="section-blob" data-parallax="-0.035" style="top:15%;left:-200px;width:520px;height:520px;opacity:0.045;filter:blur(100px);"></div>
   <div class="container">
-    <div class="eyebrow"><span class="eyebrow-rule"></span>Beyond the classes</div>
+    <div class="eyebrow"><span class="eyebrow-rule" data-line="eyebrow"></span>Beyond the classes</div>
     <h2 class="section-title">4 extra things you get, at no extra cost.</h2>
     <p class="section-lead" style="margin-bottom:56px;">5 classes isn&rsquo;t the whole plan. A job search takes months — so here&rsquo;s what keeps helping you after Day 5.</p>
     <div class="given-grid" id="givenGrid">
-      <div class="given-item" data-reveal>
+      <div class="given-item hover-card" data-reveal>
         <div class="given-tag">01</div>
         <h3 class="given-title">A ready-made website template</h3>
         <p class="given-text">A clean template you can use to build your own portfolio fast — no starting from a blank page.</p>
       </div>
-      <div class="given-item" data-reveal>
+      <div class="given-item hover-card" data-reveal>
         <div class="given-tag">02</div>
         <h3 class="given-title">A live Q&amp;A with someone from HR</h3>
         <p class="given-text">A real hiring manager joins one class to answer your questions and review a few portfolios live.</p>
       </div>
-      <div class="given-item" data-reveal>
+      <div class="given-item hover-card" data-reveal>
         <div class="given-tag">03</div>
         <h3 class="given-title">A group to keep you going</h3>
         <p class="given-text">A private group for the batch, plus a bigger open community, so you&rsquo;re not job-hunting alone.</p>
       </div>
-      <div class="given-item" data-reveal>
+      <div class="given-item hover-card" data-reveal>
         <div class="given-tag">04</div>
         <h3 class="given-title">A real shot at a referral</h3>
         <p class="given-text">Doing the work and applying actively? I&rsquo;ll personally pass your resume along to companies I know.</p>
@@ -279,17 +301,17 @@
 <section id="instructor" class="section instructor">
   <div class="section-blob" data-parallax="0.045" style="top:12%;right:-210px;width:540px;height:540px;opacity:0.08;filter:blur(110px);"></div>
   <div class="who-grid" id="whoGrid">
-    <div class="who-card">
+    <div class="who-card hover-card">
       <div class="who-avatar">T</div>
       <div class="who-handle">@thedesignshop.tds</div>
       <div class="who-role">UI/UX designer</div>
       <div class="who-stats">
-        <div><div class="who-stat-num">15K+</div><div class="who-stat-label">Following on Instagram</div></div>
-        <div><div class="who-stat-num">100+</div><div class="who-stat-label">Portfolios reviewed</div></div>
+        <div><div class="who-stat-num"><span class="counter" data-target="15" data-suffix="K+">0K+</span></div><div class="who-stat-label">Following on Instagram</div></div>
+        <div><div class="who-stat-num"><span class="counter" data-target="100" data-suffix="+">0+</span></div><div class="who-stat-label">Portfolios reviewed</div></div>
       </div>
     </div>
     <div>
-      <div class="eyebrow"><span class="eyebrow-rule"></span>Who&rsquo;s teaching this</div>
+      <div class="eyebrow"><span class="eyebrow-rule" data-line="eyebrow"></span>Who&rsquo;s teaching this</div>
       <h2 class="who-heading">Someone who&rsquo;s still doing the work.</h2>
       <p class="who-copy">This isn&rsquo;t taught by someone who stopped designing years ago. Everything here comes from real client projects I&rsquo;m working on right now — the same way I write, present, and pitch my own work.</p>
       <p class="who-copy">I&rsquo;m not trying to be the biggest name in design education. I just want you to actually get hired.</p>
@@ -299,20 +321,19 @@
 
 <!-- PRICING -->
 <section id="pricing" class="section pricing">
-  <div class="section-grid-bg"></div>
   <div class="section-blob" data-parallax="-0.055" style="top:8%;left:-190px;width:500px;height:500px;opacity:0.045;filter:blur(100px);"></div>
   <div class="container">
     <div class="eyebrow">Join the batch</div>
     <h2 class="section-title" style="margin-bottom:12px;">One simple price. Everything included.</h2>
     <p class="section-lead" style="margin-bottom:56px;">No confusing tiers. Everyone in the batch gets the same access.</p>
 
-    <div class="price-card">
+    <div class="price-card hover-card">
       <div class="price-badge">Batch 01 · Early price</div>
       <div class="price-label">The hiring rebuild</div>
       <div class="price-heading">5 days, everything included</div>
       <div class="price-row"><span class="price-amount">₹2499</span><span class="price-original">₹10,999</span></div>
       <div class="price-note">One-time payment · Early price while seats last</div>
-      <ul class="price-features">
+      <ul class="price-features" data-line="top-bottom">
         <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>All 5 live classes with @thedesignshop.tds</li>
         <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Every template and worksheet from every class</li>
         <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A full interview-prep system, start to finish</li>
@@ -329,33 +350,32 @@
 
 <!-- FAQ -->
 <section id="faq" class="section faq">
-  <div class="section-grid-bg"></div>
   <div class="section-blob" data-parallax="0.04" style="top:14%;right:-180px;width:480px;height:480px;opacity:0.045;filter:blur(100px);"></div>
   <div class="container">
-    <div class="eyebrow"><span class="eyebrow-rule"></span>Quick questions</div>
+    <div class="eyebrow"><span class="eyebrow-rule" data-line="eyebrow"></span>Quick questions</div>
     <h2 class="section-title" style="margin-bottom:48px;">Things you might be wondering.</h2>
     <div class="faq-list">
-      <div class="faq-item">
+      <div class="faq-item hover-card" data-reveal>
         <h4 class="faq-q">Will this teach me design?</h4>
         <p class="faq-a">No. This is for people who can already design. It&rsquo;s about everything else — how you present your work, how you talk about it, and how your resume and LinkedIn actually get you noticed.</p>
       </div>
-      <div class="faq-item">
+      <div class="faq-item hover-card" data-reveal>
         <h4 class="faq-q">I don&rsquo;t have any paid work yet. Can I still join?</h4>
         <p class="faq-a">Yes. Day 2 is built exactly for this. Client work isn&rsquo;t required — what matters is that real people have seen and reacted to your project. We&rsquo;ll show you exactly how to get there.</p>
       </div>
-      <div class="faq-item">
+      <div class="faq-item hover-card" data-reveal>
         <h4 class="faq-q">How much time do I need each week?</h4>
         <p class="faq-a">About 2-3 hours of work after each class. Every class ends with something to build, not just something to remember. That&rsquo;s why seats are kept small.</p>
       </div>
-      <div class="faq-item">
+      <div class="faq-item hover-card" data-reveal>
         <h4 class="faq-q">Are the classes recorded?</h4>
         <p class="faq-a">Yes, every class is recorded and shared with the group. But showing up live is where the real value is — live feedback, live practice, live reviews.</p>
       </div>
-      <div class="faq-item">
+      <div class="faq-item hover-card" data-reveal>
         <h4 class="faq-q">How does the referral actually work?</h4>
         <p class="faq-a">Two simple conditions: your portfolio needs to pass a review, and you need to be actually applying and messaging people on LinkedIn. Meet both, and I&rsquo;ll personally send your resume along. Spots for this are limited each batch.</p>
       </div>
-      <div class="faq-item">
+      <div class="faq-item hover-card" data-reveal>
         <h4 class="faq-q">What happens after the 5 days end?</h4>
         <p class="faq-a">You stay in the group — for support, feedback, and future referral chances. The classes end. The support doesn&rsquo;t.</p>
       </div>
@@ -386,6 +406,8 @@
   </div>
 </footer>
 
+<script src="assets/js/vendor/gsap/gsap.min.js"></script>
+<script src="assets/js/vendor/gsap/ScrollTrigger.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
