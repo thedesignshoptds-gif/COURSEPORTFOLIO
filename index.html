@@ -338,32 +338,40 @@
     <p class="section-lead" style="margin-bottom:56px;">No confusing tiers. Everyone in the batch gets the same access.</p>
 
     <div class="price-card hover-card">
-      <div class="price-badge">The Design Session #4 · Early price</div>
-      <div class="price-label">The hire-ready portfolio</div>
-      <div class="price-heading">5 sessions, everything included</div>
-      <div class="price-row"><span class="price-amount price-dynamic" data-price-role="current">₹2499</span><span class="price-original price-dynamic" data-price-role="was">₹10,999</span></div>
-      <div class="price-note">One-time payment · Early price while seats last</div>
+      <div id="priceCardBody">
+        <div class="price-badge">The Design Session #4 · Early price</div>
+        <div class="price-label">The hire-ready portfolio</div>
+        <div class="price-heading">5 sessions, everything included</div>
+        <div class="price-row"><span class="price-amount price-dynamic" data-price-role="current">₹2499</span><span class="price-original price-dynamic" data-price-role="was">₹10,999</span></div>
+        <div class="price-note">One-time payment · Early price while seats last</div>
 
-      <div class="coupon-box" id="couponBox">
-        <label for="couponInput" class="coupon-label">Have an early-bird code?</label>
-        <div class="coupon-row">
-          <input type="text" id="couponInput" class="coupon-input" placeholder="Enter code" autocomplete="off" spellcheck="false">
-          <button type="button" id="couponApplyBtn" class="btn btn-secondary coupon-apply-btn">Apply</button>
+        <div class="coupon-box" id="couponBox">
+          <label for="couponInput" class="coupon-label">Have an early-bird code?</label>
+          <div class="coupon-row">
+            <input type="text" id="couponInput" class="coupon-input" placeholder="Enter code" autocomplete="off" spellcheck="false">
+            <button type="button" id="couponApplyBtn" class="btn btn-secondary coupon-apply-btn">Apply</button>
+          </div>
+          <div class="coupon-message" id="couponMessage" role="status" aria-live="polite"></div>
         </div>
-        <div class="coupon-message" id="couponMessage" role="status" aria-live="polite"></div>
+
+        <ul class="price-features" data-line="top-bottom">
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>All 5 live sessions with Satyam Dubey | @thedesignshop.tds</li>
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Every template and worksheet from every session</li>
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A full interview-prep system, start to finish</li>
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A ready-made website template</li>
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Live Q&amp;A with a real HR professional</li>
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A private group to keep you on track</li>
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A shot at a personal referral</li>
+          <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Recordings of every session, yours to keep</li>
+        </ul>
+        <button type="button" id="reserveSeatBtn" class="btn btn-primary btn-block">Reserve your seat →</button>
       </div>
 
-      <ul class="price-features" data-line="top-bottom">
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>All 5 live sessions with Satyam Dubey | @thedesignshop.tds</li>
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Every template and worksheet from every session</li>
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A full interview-prep system, start to finish</li>
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A ready-made website template</li>
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Live Q&amp;A with a real HR professional</li>
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A private group to keep you on track</li>
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A shot at a personal referral</li>
-        <li><span class="icon-check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Recordings of every session, yours to keep</li>
-      </ul>
-      <a href="#" class="btn btn-primary btn-block">Reserve your seat →</a>
+      <div class="checkout-success" id="checkoutSuccess" hidden>
+        <div class="checkout-success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        <h3 class="checkout-success-title">You&rsquo;re in.</h3>
+        <p class="checkout-success-text" id="checkoutSuccessText">A confirmation email is on its way. We&rsquo;ll send the session links and the WhatsApp group invite closer to the start date.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -426,6 +434,34 @@
   </div>
 </footer>
 
+<div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+  <div class="checkout-modal-backdrop" id="checkoutModalBackdrop"></div>
+  <div class="checkout-modal-panel" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
+    <button type="button" class="checkout-modal-close" id="checkoutModalClose" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <h3 class="checkout-modal-title" id="checkoutModalTitle">Reserve your seat</h3>
+    <p class="checkout-modal-sub">You&rsquo;re paying <span class="price-dynamic" data-price-role="current">₹2499</span> for The Design Session #4.</p>
+    <form id="checkoutForm" novalidate>
+      <div class="checkout-field">
+        <label for="checkoutName">Full name</label>
+        <input type="text" id="checkoutName" name="name" autocomplete="name" required>
+      </div>
+      <div class="checkout-field">
+        <label for="checkoutEmail">Email</label>
+        <input type="email" id="checkoutEmail" name="email" autocomplete="email" required>
+      </div>
+      <div class="checkout-field">
+        <label for="checkoutWhatsapp">WhatsApp number</label>
+        <input type="tel" id="checkoutWhatsapp" name="whatsapp" autocomplete="tel" placeholder="With country code" required>
+      </div>
+      <div class="checkout-modal-error" id="checkoutModalError" role="alert"></div>
+      <button type="submit" class="btn btn-primary btn-block" id="checkoutSubmitBtn">Continue to payment</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="assets/js/vendor/gsap/gsap.min.js"></script>
 <script src="assets/js/vendor/gsap/ScrollTrigger.min.js"></script>
 <script src="assets/js/main.js"></script>
