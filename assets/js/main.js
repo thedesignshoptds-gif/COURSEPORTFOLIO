@@ -188,6 +188,76 @@
     });
   }
 
+  /* ---------- Coupon code ---------- */
+  const PRICING = {
+    regular: { current: '₹2499', was: '₹10,999' },
+    coupon: { current: '₹1195', was: '₹2499' }
+  };
+  const VALID_COUPON = 'BHAKTIHISHAKTIHAI';
+  const COUPON_STORAGE_KEY = 'tds_coupon_applied';
+
+  function setPricingState(applied) {
+    const state = applied ? PRICING.coupon : PRICING.regular;
+    document.querySelectorAll('[data-price-role="current"]').forEach((el) => { el.textContent = state.current; });
+    document.querySelectorAll('[data-price-role="was"]').forEach((el) => { el.textContent = state.was; });
+  }
+
+  const couponBox = document.getElementById('couponBox');
+  const couponInput = document.getElementById('couponInput');
+  const couponApplyBtn = document.getElementById('couponApplyBtn');
+  const couponMessage = document.getElementById('couponMessage');
+
+  function showAppliedState() {
+    if (!couponBox) return;
+    couponBox.classList.add('is-applied');
+    if (couponMessage) { couponMessage.textContent = ''; couponMessage.className = 'coupon-message'; }
+    const label = couponBox.querySelector('.coupon-label');
+    label.innerHTML = 'Coupon applied. ₹1195 unlocked. <button type="button" class="coupon-remove-btn" id="couponRemoveBtn">Remove</button>';
+    const removeBtn = document.getElementById('couponRemoveBtn');
+    if (removeBtn) {
+      removeBtn.addEventListener('click', () => {
+        localStorage.removeItem(COUPON_STORAGE_KEY);
+        setPricingState(false);
+        couponBox.classList.remove('is-applied');
+        label.textContent = 'Have an early-bird code?';
+        if (couponInput) couponInput.value = '';
+      });
+    }
+  }
+
+  if (couponBox && couponInput && couponApplyBtn) {
+    const alreadyApplied = localStorage.getItem(COUPON_STORAGE_KEY) === '1';
+    if (alreadyApplied) {
+      setPricingState(true);
+      showAppliedState();
+    }
+
+    function tryApplyCoupon() {
+      const value = couponInput.value.trim().toUpperCase();
+      if (!value) {
+        couponMessage.textContent = 'Enter a code first.';
+        couponMessage.className = 'coupon-message is-error';
+        return;
+      }
+      if (value === VALID_COUPON) {
+        localStorage.setItem(COUPON_STORAGE_KEY, '1');
+        setPricingState(true);
+        showAppliedState();
+      } else {
+        couponMessage.textContent = 'That code isn’t valid. Double-check and try again.';
+        couponMessage.className = 'coupon-message is-error';
+      }
+    }
+
+    couponApplyBtn.addEventListener('click', tryApplyCoupon);
+    couponInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        tryApplyCoupon();
+      }
+    });
+  }
+
   /* ---------- GSAP-enhanced motion (hero reveal, heading stagger, blob scrub) ---------- */
   if (motionOK) {
     const heroTl = gsap.timeline({ defaults: { ease: 'power4.out' } });
