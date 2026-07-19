@@ -225,9 +225,13 @@
     }
   }
 
+  function getAppliedCouponCode() {
+    const stored = localStorage.getItem(COUPON_STORAGE_KEY);
+    return stored === VALID_COUPON ? stored : null;
+  }
+
   if (couponBox && couponInput && couponApplyBtn) {
-    const alreadyApplied = localStorage.getItem(COUPON_STORAGE_KEY) === '1';
-    if (alreadyApplied) {
+    if (getAppliedCouponCode()) {
       setPricingState(true);
       showAppliedState();
     }
@@ -240,7 +244,7 @@
         return;
       }
       if (value === VALID_COUPON) {
-        localStorage.setItem(COUPON_STORAGE_KEY, '1');
+        localStorage.setItem(COUPON_STORAGE_KEY, VALID_COUPON);
         setPricingState(true);
         showAppliedState();
       } else {
@@ -254,6 +258,145 @@
       if (e.key === 'Enter') {
         e.preventDefault();
         tryApplyCoupon();
+      }
+    });
+  }
+
+  /* ---------- Checkout (Razorpay) ---------- */
+  const RAZORPAY_KEY_ID = 'rzp_live_TFQZmmWyRcrxtD';
+
+  const reserveSeatBtn = document.getElementById('reserveSeatBtn');
+  const checkoutModal = document.getElementById('checkoutModal');
+  const checkoutModalBackdrop = document.getElementById('checkoutModalBackdrop');
+  const checkoutModalClose = document.getElementById('checkoutModalClose');
+  const checkoutForm = document.getElementById('checkoutForm');
+  const checkoutModalError = document.getElementById('checkoutModalError');
+  const checkoutSubmitBtn = document.getElementById('checkoutSubmitBtn');
+  const priceCardBody = document.getElementById('priceCardBody');
+  const checkoutSuccess = document.getElementById('checkoutSuccess');
+  const checkoutSuccessText = document.getElementById('checkoutSuccessText');
+
+  if (reserveSeatBtn && checkoutModal && checkoutForm) {
+    function openCheckoutModal() {
+      checkoutModal.classList.add('is-open');
+      checkoutModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const nameInput = document.getElementById('checkoutName');
+      if (nameInput) nameInput.focus();
+    }
+    function closeCheckoutModal() {
+      checkoutModal.classList.remove('is-open');
+      checkoutModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    reserveSeatBtn.addEventListener('click', openCheckoutModal);
+    checkoutModalBackdrop.addEventListener('click', closeCheckoutModal);
+    checkoutModalClose.addEventListener('click', closeCheckoutModal);
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && checkoutModal.classList.contains('is-open')) closeCheckoutModal();
+    });
+
+    function setSubmitting(isSubmitting) {
+      checkoutSubmitBtn.disabled = isSubmitting;
+      checkoutSubmitBtn.textContent = isSubmitting ? 'Please wait…' : 'Continue to payment';
+    }
+
+    function showModalError(message) {
+      checkoutModalError.textContent = message;
+    }
+
+    async function verifyAndFinish(razorpayResponse, buyer, amountInr) {
+      try {
+        const res = await fetch('/api/verify-payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            razorpay_order_id: razorpayResponse.razorpay_order_id,
+            razorpay_payment_id: razorpayResponse.razorpay_payment_id,
+            razorpay_signature: razorpayResponse.razorpay_signature,
+            name: buyer.name,
+            email: buyer.email,
+            whatsapp: buyer.whatsapp,
+            amountInr
+          })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.verified) {
+          throw new Error(data.error || 'Payment could not be verified.');
+        }
+        closeCheckoutModal();
+        if (priceCardBody && checkoutSuccess) {
+          priceCardBody.hidden = true;
+          checkoutSuccess.hidden = false;
+          if (checkoutSuccessText) {
+            checkoutSuccessText.textContent = `A confirmation email is on its way to ${buyer.email}. We'll send the session links and the WhatsApp group invite closer to the start date.`;
+          }
+        }
+      } catch (err) {
+        showModalError(err.message || 'We could not confirm your payment. If money was deducted, please contact us and we will sort it out.');
+      } finally {
+        setSubmitting(false);
+      }
+    }
+
+    checkoutForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      showModalError('');
+
+      const name = document.getElementById('checkoutName').value.trim();
+      const email = document.getElementById('checkoutEmail').value.trim();
+      const whatsapp = document.getElementById('checkoutWhatsapp').value.trim();
+
+      if (!name || !email || !whatsapp) {
+        showModalError('Fill in all three fields to continue.');
+        return;
+      }
+
+      if (!window.Razorpay) {
+        showModalError('Payment is temporarily unavailable. Please refresh the page and try again, or reach out to us directly.');
+        return;
+      }
+
+      setSubmitting(true);
+
+      try {
+        const res = await fetch('/api/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, whatsapp, couponCode: getAppliedCouponCode() })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Could not start checkout.');
+        }
+
+        const rzp = new window.Razorpay({
+          key: RAZORPAY_KEY_ID,
+          amount: data.amount,
+          currency: data.currency,
+          order_id: data.orderId,
+          name: 'The Design Shop',
+          description: 'The Design Session #4: The hire-ready portfolio',
+          prefill: { name: data.buyer.name, email: data.buyer.email, contact: data.buyer.whatsapp },
+          theme: { color: '#FF4B24' },
+          handler: function (response) {
+            verifyAndFinish(response, data.buyer, data.amountInr);
+          },
+          modal: {
+            ondismiss: function () {
+              setSubmitting(false);
+            }
+          }
+        });
+        rzp.on('payment.failed', function (response) {
+          showModalError((response.error && response.error.description) || 'Payment failed. Please try again.');
+          setSubmitting(false);
+        });
+        rzp.open();
+      } catch (err) {
+        showModalError(err.message || 'Something went wrong. Please try again.');
+        setSubmitting(false);
       }
     });
   }
