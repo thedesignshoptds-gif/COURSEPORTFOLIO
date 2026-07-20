@@ -57,8 +57,15 @@ module.exports = async (req, res) => {
     sendAdminNotification({ name: buyer.name, email: buyer.email, whatsapp: buyer.whatsapp, amountInr: amountInr || '', paymentId })
   ]);
 
-  results.forEach((r) => {
-    if (r.status === 'rejected') console.error('Email send failed', r.reason);
+  results.forEach((r, idx) => {
+    const type = idx === 0 ? 'Buyer Confirmation' : 'Admin Notification';
+    if (r.status === 'rejected') {
+      console.error(`${type} email failed to send:`, r.reason);
+    } else if (r.value && r.value.error) {
+      console.error(`${type} email failed to send:`, r.value.error);
+    } else if (r.value && r.value.data) {
+      console.log(`${type} email sent successfully:`, r.value.data);
+    }
   });
 
   res.status(200).json({ verified: true, paymentId });

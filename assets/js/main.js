@@ -372,7 +372,7 @@
         }
 
         const rzp = new window.Razorpay({
-          key: RAZORPAY_KEY_ID,
+          key: data.keyId || RAZORPAY_KEY_ID,
           amount: data.amount,
           currency: data.currency,
           order_id: data.orderId,

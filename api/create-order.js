@@ -37,6 +37,7 @@ module.exports = async (req, res) => {
     });
 
     res.status(200).json({
+      keyId: process.env.RAZORPAY_KEY_ID,
       orderId: order.id,
       amount: order.amount,
       amountInr,

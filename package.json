@@ -4,7 +4,7 @@
   "private": true,
   "description": "The Design Session #4 landing page and payment backend.",
   "dependencies": {
-    "razorpay": "^2.9.4",
-    "resend": "^3.5.0"
+    "nodemailer": "^6.9.13",
+    "razorpay": "^2.9.4"
   }
 }
