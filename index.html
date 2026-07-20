@@ -446,14 +446,17 @@
       <div class="checkout-field">
         <label for="checkoutName">Full name</label>
         <input type="text" id="checkoutName" name="name" autocomplete="name" required>
+        <span class="checkout-field-error" id="checkoutNameError"></span>
       </div>
       <div class="checkout-field">
         <label for="checkoutEmail">Email</label>
         <input type="email" id="checkoutEmail" name="email" autocomplete="email" required>
+        <span class="checkout-field-error" id="checkoutEmailError"></span>
       </div>
       <div class="checkout-field">
         <label for="checkoutWhatsapp">WhatsApp number</label>
-        <input type="tel" id="checkoutWhatsapp" name="whatsapp" autocomplete="tel" placeholder="With country code" required>
+        <input type="tel" id="checkoutWhatsapp" name="whatsapp" autocomplete="tel" placeholder="e.g. +91 98765 43210" required>
+        <span class="checkout-field-error" id="checkoutWhatsappError"></span>
       </div>
       <div class="checkout-modal-error" id="checkoutModalError" role="alert"></div>
       <button type="submit" class="btn btn-primary btn-block" id="checkoutSubmitBtn">Continue to payment</button>

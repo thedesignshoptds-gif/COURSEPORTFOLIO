@@ -303,6 +303,8 @@ h1,h2,h3,h4,p{margin:0;}
 .checkout-field label{display:block;font:var(--text-label);color:var(--fg-on-light-muted);margin-bottom:8px;}
 .checkout-field input{width:100%;font:var(--text-body-sm);font-family:var(--font-body);padding:12px 14px;border:1.5px solid var(--border-light-strong);background:var(--white);color:var(--black);}
 .checkout-field input:focus{outline:none;border-color:var(--accent);}
+.checkout-field input.is-invalid{border-color:var(--error);}
+.checkout-field-error{display:none;font:var(--text-body-sm);color:var(--error);margin-top:6px;}
 .checkout-modal-error{font:var(--text-body-sm);color:var(--error);margin-bottom:16px;min-height:1.2em;}
 #checkoutSubmitBtn:disabled{opacity:0.6;}
 @media (pointer:fine){.checkout-field input{cursor:none;}}

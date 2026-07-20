@@ -340,18 +340,54 @@
       }
     }
 
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    function setFieldError(inputId, errorId, message) {
+      const input = document.getElementById(inputId);
+      const errorEl = document.getElementById(errorId);
+      if (input) input.classList.toggle('is-invalid', !!message);
+      if (errorEl) { errorEl.textContent = message; errorEl.style.display = message ? 'block' : 'none'; }
+    }
+
+    function clearAllFieldErrors() {
+      ['checkoutName','checkoutEmail','checkoutWhatsapp'].forEach(id => setFieldError(id, id + 'Error', ''));
+    }
+
     checkoutForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       showModalError('');
+      clearAllFieldErrors();
 
       const name = document.getElementById('checkoutName').value.trim();
       const email = document.getElementById('checkoutEmail').value.trim();
       const whatsapp = document.getElementById('checkoutWhatsapp').value.trim();
 
-      if (!name || !email || !whatsapp) {
-        showModalError('Fill in all three fields to continue.');
-        return;
+      let hasError = false;
+
+      if (!name || name.length < 2) {
+        setFieldError('checkoutName', 'checkoutNameError', 'Please enter your full name.');
+        hasError = true;
       }
+
+      if (!email || !EMAIL_RE.test(email)) {
+        setFieldError('checkoutEmail', 'checkoutEmailError', 'Please enter a valid email address (e.g. you@example.com).');
+        hasError = true;
+      }
+
+      // WhatsApp must start with + followed by country code + at least 7 digits (min 9 chars total)
+      const wpClean = whatsapp.replace(/[\s\-().]/g, '');
+      if (!whatsapp) {
+        setFieldError('checkoutWhatsapp', 'checkoutWhatsappError', 'Please enter your WhatsApp number.');
+        hasError = true;
+      } else if (!wpClean.startsWith('+')) {
+        setFieldError('checkoutWhatsapp', 'checkoutWhatsappError', 'Include your country code (e.g. +91 98765 43210). Numbers without a country code are not accepted.');
+        hasError = true;
+      } else if (!/^\+\d{8,15}$/.test(wpClean)) {
+        setFieldError('checkoutWhatsapp', 'checkoutWhatsappError', 'Please enter a valid WhatsApp number with country code (e.g. +91 98765 43210).');
+        hasError = true;
+      }
+
+      if (hasError) return;
 
       if (!window.Razorpay) {
         showModalError('Payment is temporarily unavailable. Please refresh the page and try again, or reach out to us directly.');
