@@ -228,8 +228,8 @@ h1,h2,h3,h4,p{margin:0;}
 .pricing .section-title,.pricing .section-lead{margin-left:auto;margin-right:auto;}
 .pricing .eyebrow{justify-content:center;}
 .price-card{background:var(--surface-light-raised);border:1px solid var(--border-light);max-width:600px;margin:0 auto;padding:56px 52px;text-align:left;position:relative;box-shadow:var(--shadow-md);}
-.price-badge{position:absolute;top:0;left:0;background:var(--accent);color:var(--white);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:8px 18px;}
-.price-label{font:var(--text-label);letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-on-light-faint);margin:28px 0 10px;}
+.price-badge{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+.price-label{font:var(--text-label);letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-on-light-faint);margin:12px 0 10px;}
 .price-heading{font:var(--text-h4);letter-spacing:-0.01em;margin-bottom:24px;}
 .price-row{display:flex;align-items:baseline;gap:12px;}
 .price-amount{font:var(--text-h1);letter-spacing:-0.03em;}
