@@ -361,3 +361,51 @@ h1,h2,h3,h4,p{margin:0;}
   .who-card{padding:28px;}
   .footer-inner{flex-direction:column;align-items:flex-start;}
 }
+
+/* ---------- Legal Pages ---------- */
+.legal-container {
+  max-width: 800px;
+  margin: 160px auto 120px;
+  padding: 0 24px;
+}
+.legal-title {
+  font: var(--text-h2);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--black);
+}
+.legal-date {
+  font: var(--text-mono);
+  color: var(--accent);
+  margin-bottom: 48px;
+}
+.legal-content {
+  font: var(--text-body);
+  color: var(--fg-on-light-muted);
+}
+.legal-content h2 {
+  font: var(--text-h4);
+  color: var(--black);
+  margin: 48px 0 16px;
+  letter-spacing: -0.01em;
+}
+.legal-content p {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.legal-content ul, .legal-content ol {
+  margin: 0 0 24px 24px;
+  list-style: disc;
+}
+.legal-content li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.legal-content hr {
+  border: none;
+  border-top: 1px solid var(--border-light);
+  margin: 40px 0;
+}
+.legal-content strong {
+  color: var(--black);
+}

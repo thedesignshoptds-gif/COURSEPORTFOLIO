@@ -27,11 +27,30 @@ async function sendBuyerConfirmation({ name, email, amountInr }) {
     to: email,
     subject: 'You’re in — The Design Session #4',
     html: `
-      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1E1E1E;">
+      <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1E1E1E;line-height:1.6;">
         <h2 style="margin-bottom:8px;">You're in, ${escapeHtml(name)}.</h2>
-        <p>Your seat for <strong>The Design Session #4: The hire-ready portfolio</strong> is confirmed. You paid &#8377;${amountInr}.</p>
-        <p>We'll send the session links and the WhatsApp group invite closer to the start date. If you don't hear from us within 48 hours, just reply to this email.</p>
-        <p style="margin-top:24px;color:#6C6D61;font-size:13px;">The Design Shop</p>
+        <p style="margin-bottom:24px;">Your seat for <strong>The Design Session #4: The hire-ready portfolio</strong> is confirmed. You paid &#8377;${amountInr}.</p>
+        
+        <p>📱 You’ll be added to the WhatsApp group soon — that’s mission control for this whole thing. Updates, session links, daily homework, the occasional meme. Keep your notifications on.</p>
+        
+        <p>📅 First live session: 31st July. Put it in your calendar, tell your roommate not to bother you, maybe cancel that one plan you were dreading anyway.</p>
+        
+        <p>Now — go find your portfolio. Yes, that one. The one you haven’t opened since your last job application got ghosted. Open the tab. Stare at it. Feel slightly uncomfortable. That’s normal. That’s actually the goal.</p>
+        
+        <p>Because starting Day 01, we’re tearing it apart and rebuilding it — piece by piece, no judgment, just progress. Messy, half-finished, held together with hope? Perfect. Bring exactly that.</p>
+        
+        <p>See you on the 31st. Your portfolio doesn’t know what’s coming.</p>
+        
+        <div style="text-align: center; margin: 32px 0;">
+          <a href="https://youtu.be/dQw4w9WgXcQ?si=AYqxsjP2r-ZthPaW" style="background-color: #FF4B24; color: #ffffff; padding: 12px 28px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 14px; display: inline-block; text-align: center; box-shadow: 0 4px 14px rgba(255, 75, 36, 0.3);">
+            Start Vibing
+          </a>
+        </div>
+
+        <p style="margin-top:24px;color:#6C6D61;font-size:13px;line-height:1.5;">
+          Talk soon,<br>
+          <strong>Satyam Dubey | The Design Shop</strong>
+        </p>
       </div>
     `
   });
